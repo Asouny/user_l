@@ -1,0 +1,113 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registrate en #Include</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form class="ion-padding" [formGroup]="myForm">
+
+    <ion-list>
+
+      <ion-item>
+        <ion-label position="floating">Nombre(s)</ion-label>
+        <ion-input type="text" formControlName="firstName"></ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="myForm.get('firstName').errors && (myForm.get('firstName'
+      ).dirty || myForm.get('firstName').touched || submitted)">
+        <ion-label color="danger">Favor de ingresar un Nombre valido</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Apellidos</ion-label>
+        <ion-input type="text" formControlName="lastName"></ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="myForm.get('lastName').errors && (myForm.get('lastName'
+      ).dirty || myForm.get('lastName').touched || submitted)">
+        <ion-label color="danger">Favor de ingresar un Apellido valido</ion-label>
+      </ion-item>
+
+
+
+      <ion-item>
+        <ion-list>
+          <ion-radio-group name="gender" value="Hombre" formControlName="gender">
+            <ion-list-header>
+              <ion-label>Selecciona el genero</ion-label>
+            </ion-list-header>
+            <ion-item>
+              <ion-label>Hombre</ion-label>
+              <ion-radio value="Hombre"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>Mujer</ion-label>
+              <ion-radio value="Mujer"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+      </ion-item>
+
+
+
+      <ion-item>
+        <ion-label position="floating">R.F.C.</ion-label>
+        <ion-input type="text" formControlName="rfc"></ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="myForm.get('rfc').errors && (myForm.get('rfc'
+      ).dirty || myForm.get('rfc').touched || submitted)">
+        <ion-label color="danger">Favor de ingresar un RFC valido</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Fecha de nacimiento</ion-label>
+        <ion-datetime formControlName="birthday" displayFormat="DD/MM/YYYY">
+        </ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Foto de perfil</ion-label>
+        <ion-input type="text" formControlName="photo"></ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="myForm.get('photo').errors && (myForm.get('photo'
+      ).dirty || myForm.get('photo').touched || submitted)">
+        <ion-label color="danger">Favor de ingresar un Link valido</ion-label>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label position="floating">Correo Electronico</ion-label>
+        <ion-input type="text" formControlName="email"></ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="myForm.get('email').errors && (myForm.get('email'
+      ).dirty || myForm.get('email').touched || submitted)">
+        <ion-label color="danger">Favor de ingresar un email valido</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input type="text" formControlName="password"></ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="myForm.get('password').errors && (myForm.get('password'
+      ).dirty || myForm.get('password').touched || submitted)">
+        <ion-label color="danger">La contraseña debe tener entre 8 y 16 caracteres, al menos un dígito, al menos una
+          minúscula y al menos una mayúscula.
+          NO puede tener otros símbolos.</ion-label>
+      </ion-item>
+
+    </ion-list>
+
+    <ion-button (click)="saveUser()" expand="block" shape="round">
+      Guardar
+    </ion-button>
+
+  </form>
+</ion-content>
